@@ -215,29 +215,6 @@ namespace StockholmNewcomers.Models.Entities
                     .HasConstraintName("FK__localacti__tagsI__41EDCAC5");
             });
 
-            modelBuilder.Entity<Organisations>(entity =>
-            {
-                entity.Property(e => e.DateAdded)
-                    .HasColumnType("timestamp")
-                    .ValueGeneratedOnAddOrUpdate();
-
-                entity.Property(e => e.Description).IsRequired();
-
-                entity.Property(e => e.Email).HasColumnType("nchar(50)");
-
-                entity.Property(e => e.Info).IsRequired();
-
-                entity.Property(e => e.Logo).HasMaxLength(50);
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasColumnType("nchar(32)");
-
-                entity.Property(e => e.PhoneNumber).HasMaxLength(50);
-
-                entity.Property(e => e.Website).HasColumnType("nchar(50)");
-            });
-
             modelBuilder.Entity<Organizations>(entity =>
             {
                 entity.ToTable("organizations");
@@ -377,6 +354,10 @@ namespace StockholmNewcomers.Models.Entities
                     .HasColumnName("cat")
                     .HasDefaultValueSql("'0'");
 
+                entity.Property(e => e.Checked)
+                    .HasColumnName("checked")
+                    .HasDefaultValueSql("'0'");
+
                 entity.Property(e => e.Description)
                     .HasColumnName("description")
                     .HasColumnType("varchar(max)");
@@ -466,7 +447,6 @@ namespace StockholmNewcomers.Models.Entities
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Localactivities> Localactivities { get; set; }
         public virtual DbSet<LocalactivitiesTags> LocalactivitiesTags { get; set; }
-        public virtual DbSet<Organisations> Organisations { get; set; }
         public virtual DbSet<Organizations> Organizations { get; set; }
         public virtual DbSet<OrganizationsTags> OrganizationsTags { get; set; }
         public virtual DbSet<Socials> Socials { get; set; }

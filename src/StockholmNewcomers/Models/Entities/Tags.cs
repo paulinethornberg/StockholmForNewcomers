@@ -22,6 +22,7 @@ namespace StockholmNewcomers.Models.Entities
         public short? Approve { get; set; }
         public int? Ord { get; set; }
         public string Lang { get; set; }
+        public bool? Checked { get; set; }
 
         public virtual ICollection<LocalactivitiesTags> LocalactivitiesTags { get; set; }
         public virtual ICollection<OrganizationsTags> OrganizationsTags { get; set; }

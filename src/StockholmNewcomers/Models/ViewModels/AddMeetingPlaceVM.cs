@@ -26,6 +26,8 @@ namespace StockholmNewcomers.Models.ViewModels
         //[ImageValidatorAttribute]
         public ICollection<IFormFile> Files { get; set; }
 
+        public bool Selected { get; set; }
+
         public List<Tags> Tags { get; set; }
     }
 }

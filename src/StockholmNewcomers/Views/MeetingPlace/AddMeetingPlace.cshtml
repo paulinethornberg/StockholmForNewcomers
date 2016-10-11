@@ -1,5 +1,6 @@
 ﻿@model AddMeetingPlaceVM
 <script src="~/js/Sort.js"></script>
+<script src="~/js/MixItUp.js"></script>
 <br />
 <br />
 <div class="panel m-panel shadow">
@@ -51,18 +52,6 @@
                         </div>
                     </div>
                 </div>
-                @*<div class="row">
-            <div class="small-4 columns">
-                <p class="notice">
-                    Input with an error
-                </p>
-            </div>
-            <div class="small-8 columns">
-                <div class="form-group-material error">
-                    <label class="material-label" for="firstname">Summary of activity/purpose (max 120 characters)</label><input class="material-field" id="firstname" type="text"><small class="error">Your firstname can't be a number.</small>
-                </div>
-            </div>
-        </div>*@
                 <div class="row">
                     <div class="small-4 columns">
                         <p class="notice">
@@ -127,15 +116,24 @@
                     </div>
                 </div>
                 <h4><small>Add (max 3) tags to categorize the organisation or meeting place: </small></h4>
+                @*<div class="button-group">
+                    @for (int i = 0; i < 26; i++)
+                    {
+                        @Html.CheckBoxFor(m => m.Tags[i].Checked)
+                    }
+
+                </div>*@
 
                 <div class="button-group">
                     @for (int i = 0; i < 26; i++)
                     {
-                        <input id="@Model.Tags[i].Title" type="">
-                        <label class="button" for="checkbox1">@Model.Tags[i].Title</label>
+                        <input name="Tags" type="checkbox" id="tagCheckbox" value="@Model.Tags[i].Title" >
+                        <label class="button" for="tagCheckbox">@Model.Tags[i].Title</label>
                     }
                    
                 </div>
+                <script></script>
+
                 <input id="honeyBucket" style="display:none" type="text" name="HoneyBucket" />
 
                 <div class="row">

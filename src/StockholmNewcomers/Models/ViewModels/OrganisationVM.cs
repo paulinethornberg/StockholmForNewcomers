@@ -18,7 +18,7 @@ namespace StockholmNewcomers.Models.ViewModels
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public int? Type { get; internal set; }
-
+        public byte? Approve { get; set; }
 
         public int CategoryNumber { get; set; }
          public List<TagsCategory> Categories { get; set; }

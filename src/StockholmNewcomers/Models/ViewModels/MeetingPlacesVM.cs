@@ -19,5 +19,7 @@ namespace StockholmNewcomers.Models.ViewModels
         public string Email { get; set; }
         public string Title { get; internal set; }
         public List<Tags> Tags { get; set; }
+        public short? Approve { get; set; }
+
     }
 }

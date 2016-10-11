@@ -40,6 +40,7 @@ namespace StockholmNewcomers.Models
                     Info = c.Info ,
                     Website = c.Website,
                     Tags = GetTagsForThisOrganization(c.Id,allTags,allOrganizationTags),
+                    Approve = c.Approve
                     })
                 .ToArray();
 
@@ -181,6 +182,7 @@ namespace StockholmNewcomers.Models
                     Logo = c.Logo,
                     Website = c.Website,
                     Tags = GetTagsForThisMeetingPlace(c.Id, allTags, allMeetingPlaceTags),
+                    Approve = c.Approve
                 })
                 .ToArray();
 

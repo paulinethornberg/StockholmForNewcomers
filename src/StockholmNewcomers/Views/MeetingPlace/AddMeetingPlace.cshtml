@@ -1,0 +1,154 @@
+﻿@model AddMeetingPlaceVM
+<script src="~/js/Sort.js"></script>
+<br />
+<br />
+<div class="panel m-panel shadow">
+    <div class="row collapse">
+        <div class="small-12 columns">
+            <header class="form-header">
+                <h3>
+                    <small>Suggest a new meeting place to add to Stockholm for Newcomers! </small>
+                </h3>
+            </header>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <form method="post" action="AddMeetingPlace" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="small-4 columns">
+                        <p class="notice">
+                            Name
+                        </p>
+                    </div>
+                    <div class="small-8 columns">
+                        <div class="form-group-material">
+                            <label class="material-label" for="name">Name</label><input name="Name" class="material-field" id="name" required="required" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-4 columns">
+                        <p class="notice">
+                            Summary (max xxx characters)
+                        </p>
+                    </div>
+                    <div class="small-8 columns">
+                        <div class="form-group-material">
+                            <label class="material-label" for="summary">Summary</label><input name="Summary" class="material-field" id="summary" required="required" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-4 columns">
+                        <p class="notice">
+                            Description (long)
+                        </p>
+                    </div>
+                    <div class="small-8 columns">
+                        <div class="form-group-material">
+                            <label class="material-label" for="Description">Description</label><textarea name="Description" class="material-field" id="description" required="required" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+            <div class="small-4 columns">
+                <p class="notice">
+                    Input with an error
+                </p>
+            </div>
+            <div class="small-8 columns">
+                <div class="form-group-material error">
+                    <label class="material-label" for="firstname">Summary of activity/purpose (max 120 characters)</label><input class="material-field" id="firstname" type="text"><small class="error">Your firstname can't be a number.</small>
+                </div>
+            </div>
+        </div>*@
+                <div class="row">
+                    <div class="small-4 columns">
+                        <p class="notice">
+                            Email
+                        </p>
+                    </div>
+                    <div class="small-8 columns">
+                        <div class="form-group-material">
+                            <label class="material-label" for="email">E-mail</label><input name="Email" class="material-field" id="email" type="email">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-4 columns">
+                        <p class="notice">
+                            ContactInfo
+                        </p>
+                    </div>
+                    <div class="small-8 columns">
+                        <div class="row">
+                            <div class="small-8 columns">
+                                <div class="form-group-material">
+                                    <label class="material-label" for="website">Website</label><input name="Website" class="material-field" id="website" type="text">
+                                </div>
+                            </div>
+                            <div class="small-4 columns">
+                                <div class="form-group-material">
+                                    <label class="material-label" for="facebook">Facebook</label><input name="Facebook" class="material-field" id="facebook" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-4 columns">
+                            <p class="notice">
+                                Image
+                            </p>
+                        </div>
+                        <div class="small-8 columns">
+                            <div class="form-group-material">
+                                <input type="file" name="Files" multiple />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-4 columns">
+                            <p class="notice">
+                                Choose Location:
+                            </p>
+                        </div>
+                        <div class="small-8 columns">
+                            <div class="form-group-material">
+                                <select id="select" required>
+                                    <option></option>
+                                    @for (int i = 26; i < 62; i++)
+                                    {
+                                        <option value="@Model.Tags[i].Title"> @Model.Tags[i].Title</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4><small>Add (max 3) tags to categorize the organisation or meeting place: </small></h4>
+
+                <div class="button-group">
+                    @for (int i = 0; i < 26; i++)
+                    {
+                        <input id="@Model.Tags[i].Title" type="">
+                        <label class="button" for="checkbox1">@Model.Tags[i].Title</label>
+                    }
+                   
+                </div>
+                <input id="honeyBucket" style="display:none" type="text" name="HoneyBucket" />
+
+                <div class="row">
+                    <div class="small-12 small-push-4 columns">
+                        <button value="Upload">Submit!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<link href="~/css/app.css" rel="stylesheet" />
+
+<script src="~/js/vendor/jquery.js"></script>
